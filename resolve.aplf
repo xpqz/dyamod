@@ -1,0 +1,8 @@
+resolve mod;n;p
+#.sys.resolve ,← ⊂mod ({∊1↓,'.'(,⍤0)⍵}#.sys.owner)
+:for (n p) :in ⊖#.sys.resolve
+    :if 0≠⎕NC p
+        n (⍎p).{⍎⍺,'←⍵'} #.sys.modules⍎n
+    :endif
+:endfor
+#.sys.resolve ← #.sys.resolve/⍨{0=⎕NC 2⌷⍵}¨#.sys.resolve

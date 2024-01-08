@@ -1,0 +1,20 @@
+path package pkg;fq;mod;modules;names;p;types
+⍝ Import any modules in this directory, and recursively any pacakages
+
+pkg #.sys.modules.⎕NS⍬
+#.sys.owner ,← ⊂pkg
+fq ← path cleanpath pkg
+modules ← 2⊃¨⎕NPARTS(⊃0⎕NINFO⍠1,∘'/*.aplm')fq
+:for mod :in modules
+    pkg module mod
+    resolve mod
+:endfor
+
+⍝ Now look for any sub-packages
+(names types) ← (0 1⎕NINFO⍠1,∘'/*')fq
+:for p :in names/⍨1=types
+    path package p
+    resolve p
+:endfor
+
+#.sys.owner ← ¯1↓#.sys.owner

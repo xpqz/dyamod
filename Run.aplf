@@ -1,0 +1,4 @@
+Run
+'sys' #.⎕NS⍬
+'modules' #.sys.⎕NS⍬
+#.sys.(path owner resolve) ← (,⊂,'.') (,⊂,'#') ⍬

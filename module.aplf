@@ -1,0 +1,5 @@
+path module mod;source
+#.sys.owner ,← ⊂mod
+source ← ⊃⎕NGET (path cleanpath mod,'.aplm') 1
+2 #.sys.modules.⎕FIX(⊂':Namespace ',mod),source,⊂':EndNamespace'
+#.sys.owner ← ¯1↓#.sys.owner    

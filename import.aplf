@@ -1,0 +1,37 @@
+{r}←import pkg;cwd;path
+
+r←0
+:if (⊂pkg) ∊ #.sys.modules.⎕NL ¯9
+    ⍝ Already imported; make a reference in the caller's namespace
+    resolve pkg
+    :return
+:endif
+
+⍝ Search the directories defined in sys.path
+r←1
+cwd ← ⊃1⎕NPARTS''
+:for path :in #.sys.path
+    :if path = '.'
+        path ← cwd
+    :elseif '/'≠⊃path
+        path ← cwd,path
+    :endif
+    :if '/'≠⊃⊖path
+        path,←'/'
+    :endif
+
+    ⍝ First look for a module
+    :if ⎕NEXISTS path cleanpath pkg,'.aplm'
+        path module pkg
+        resolve pkg
+        :return
+    :endif
+    
+    ⍝ Otherwise, look for a package
+    :if ⎕NEXISTS path cleanpath pkg
+        path package pkg
+        resolve pkg
+        :return
+    :endif
+:endfor
+('FILE NAME ERROR: No module or package named "',pkg,'" was found')⎕SIGNAL 22

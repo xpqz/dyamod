@@ -1,0 +1,14 @@
+⍝ funs.apl
+#.import 'minmax'
+
+sum ← {
+    ⍺+⍵
+}
+
+diff ← {
+    ⍺-⍵
+}
+
+mm ← {
+    (minmax.min,minmax.max)⍵
+}
