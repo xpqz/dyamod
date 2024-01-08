@@ -14,9 +14,9 @@ The reason is that with P&M, the users have more flexibility in how they wish to
 
 There are some suspicions against "the script model" where definitions and executions and data are seemingly mixed up and expected to run from top to bottom. Whilst this *is* a problem in today's Dyalog, meaning that fixing `.apls` files "willy nilly" would lead to chaos and confusion, *this* is one of the problems that having a language level package and module system would solve. 
 
-> Meh. All you're doing is making namespaces from filenames and recusively loading; not very novel...
+> Meh. All you're doing is making namespaces from filenames and recursively loading; not very novel...
 
-Basically, yes (plus ensuring everything is only ever loaded once). The whole point is that it's not meant to be novel. The other team has been doing this for decades.
+Basically, yes (plus ensuring everything is only ever loaded once). The whole point is that it's not *meant* to be novel. The other team has been doing this for decades.
 
 > What does it *not* do?
 
