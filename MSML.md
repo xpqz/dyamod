@@ -104,7 +104,7 @@ Here, the body of `StackMod` has no free identifiers, so it takes an empty param
 
 ```sml
 instance Stack = StackMod () { Stack: STACK }
-```sml
+```
 
 The rest of the paper focuses on demonstrating some more in-depth interactions between modules, including implementation sharing and type inheritance.
 
